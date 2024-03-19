@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: chocolate;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#snake .grid {
+    display: grid;
+    width: 80vmin;
+    height: 80vmin;
+    background-color: blueviolet;
+    column-gap: 1vmin;
+    row-gap: 1vmin;
+    /* grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(12,1fr); */
+}
+
+#snake .grid .cell {
+    background: #d8345f;
+    position: relative;
+}
