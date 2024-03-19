@@ -27,3 +27,52 @@ body {
     background: #d8345f;
     position: relative;
 }
+
+
+/* Start Head,Body and Tail of Snake's Classes  */
+#snake .grid .cell.isHead {
+    background-color: #588da8;
+    border-radius: 40% 40% 0 0;
+}
+
+#snake .grid .cell.isBody {
+    background-color: #588da8;
+}
+
+#snake .grid .cell.isTail {
+    background-color: #588da8;
+    border-radius: 0 0 40% 40%;
+}
+
+#snake .grid .cell.isHead::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    right: 5px;
+    height: 5px;
+    width: 5px;
+    background-color: #000;
+    border: none;
+    border-radius: 50%;
+}
+
+/* Finish Head,Body and Tail of Snake's Classes  */
+
+/* Start moving Snakes Classes */
+.rightDirection {
+    transform: rotateZ(90deg);
+}
+
+.leftDirection{
+    transform: rotateZ(-90deg);
+}
+
+.upDirection{
+    transform: rotateZ(0deg);
+}
+
+.downDirection{
+    transform: rotatez(180deg);
+}
+
+/* Finish moving Snakes Classes */

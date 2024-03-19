@@ -4,15 +4,18 @@ class Game {
         //options
         this.rowCount = opts.rowCount ?? 12;
         this.colCount = opts.colCount ?? 12;
-        this.initialSiza = opts.initialSiza ?? 3;
+        this.initialSize = opts.initialSize ?? 3;
 
         this.grid = [];
-        this.snakeIndex = [];
+        this.snakeIndexes = [];
         this.direction = [];
         this.foodIndex = null;
 
         // create grid
         this.createGrid();
+
+        // create snake
+        this.createSnake();
     }
 
     createGrid() {
@@ -31,6 +34,25 @@ class Game {
             gridElem.appendChild(cellElement);
             this.grid[i].setIndex(i);
             this.grid[i].setElement(cellElement);
+        }
+    }
+
+    createSnake() {
+        const gridMiddle = parseInt((this.grid.length / 2) - this.colCount / 2);
+        const initialDirection = 'RIGHT';
+        for (let i = 0; i < this.initialSize; i++) {
+            if (i === 0) {
+                // This is head of snake
+                this.grid[gridMiddle].setSnake('Head',initialDirection);
+                this.snakeIndexes.push(gridMiddle);
+            }
+            else if(i===this.initialSize-1){
+                this.grid[gridMiddle-i].setSnake('Tail', initialDirection);
+                this.snakeIndexes.push(gridMiddle);
+            }else{
+                this.grid[gridMiddle - i].setSnake('Body', initialDirection);
+                this.snakeIndexes.push(gridMiddle);
+            }
         }
     }
 }
